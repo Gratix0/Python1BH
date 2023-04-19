@@ -1,5 +1,6 @@
 import hashlib
 import csv
+from random import randint
 from tabulate import tabulate
 
 
@@ -103,10 +104,14 @@ def autorization(array):
     print("Неверный логин или пароль")
 
 
+
 login = input("Login: ")
 password = input("Password: ")
-salt = "pivo"
-password = hashlib.sha256(password.encode() + salt.encode()).hexdigest()
+
+salt = ["bistree", "nado", "sdelat", 'pivo']
+randoni = randint(0, 3)
+
+password = hashlib.sha256(password.encode() + salt[3].encode()).hexdigest()
 user = [login, password]
 autorization(user)
 
